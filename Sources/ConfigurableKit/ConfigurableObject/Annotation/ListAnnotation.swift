@@ -53,3 +53,35 @@ public extension ListAnnotation.ValueItem {
         self.rawValue = .init(rawValue)
     }
 }
+
+public extension ListAnnotation.ValueItem {
+    @_disfavoredOverload
+    init(
+        icon: String = "",
+        title: String,
+        section: String = "",
+        rawValue: ConfigurableKitAnyCodable
+    ) {
+        self.init(
+            icon: icon,
+            title: String.LocalizationValue(title),
+            section: String.LocalizationValue(section),
+            rawValue: rawValue
+        )
+    }
+
+    @_disfavoredOverload
+    init(
+        icon: String = "",
+        title: String,
+        section: String = "",
+        rawValue: some Codable
+    ) {
+        self.init(
+            icon: icon,
+            title: String.LocalizationValue(title),
+            section: String.LocalizationValue(section),
+            rawValue: rawValue
+        )
+    }
+}

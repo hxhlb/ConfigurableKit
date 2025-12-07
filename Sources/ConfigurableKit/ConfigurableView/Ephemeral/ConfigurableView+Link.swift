@@ -41,6 +41,11 @@ open class ConfigurableLinkView: ConfigurableView {
         button.setAttributedTitle(pressedAttrString, for: .selected)
     }
 
+    @_disfavoredOverload
+    public convenience init(buttonTitle: String, url: URL) {
+        self.init(buttonTitle: String.LocalizationValue(buttonTitle), url: url)
+    }
+
     @available(*, unavailable)
     public required init(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")

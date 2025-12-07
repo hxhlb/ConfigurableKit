@@ -135,6 +135,16 @@ open class ConfigurableView: UIStackView {
         descriptionLabel.isHidden = String(localized: description).isEmpty
     }
 
+    @_disfavoredOverload
+    open func configure(title: String) {
+        configure(title: String.LocalizationValue(title))
+    }
+
+    @_disfavoredOverload
+    open func configure(description: String) {
+        configure(description: String.LocalizationValue(description))
+    }
+
     open func subscribeToAvailability(_ publisher: AnyPublisher<Bool, Never>, initialValue: Bool) {
         publisher
             .ensureMainThread()

@@ -26,6 +26,12 @@ open class ConfigurableSectionFooterView: ConfigurableView {
         return self
     }
 
+    @_disfavoredOverload
+    @discardableResult
+    open func with(footer: String) -> Self {
+        with(footer: String.LocalizationValue(footer))
+    }
+
     @discardableResult
     open func with(rawFooter: String) -> Self {
         titleLabel.text = rawFooter

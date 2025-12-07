@@ -26,6 +26,12 @@ open class ConfigurableSectionHeaderView: ConfigurableView {
         return self
     }
 
+    @_disfavoredOverload
+    @discardableResult
+    open func with(header: String) -> Self {
+        with(header: String.LocalizationValue(header))
+    }
+
     @discardableResult
     open func with(rawHeader: String) -> Self {
         titleLabel.text = rawHeader

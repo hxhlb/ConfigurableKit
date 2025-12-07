@@ -42,6 +42,23 @@ public extension ConfigurableObject {
     }
 }
 
+public extension ConfigurableObject.Annotation {
+    @_disfavoredOverload
+    static func openLink(title: String, url: URL) -> Self {
+        .openLink(title: String.LocalizationValue(title), url: url)
+    }
+
+    @_disfavoredOverload
+    static func quickLook(title: String, url: URL) -> Self {
+        .quickLook(title: String.LocalizationValue(title), url: url)
+    }
+
+    @_disfavoredOverload
+    static func shareLink(title: String, url: URL) -> Self {
+        .shareLink(title: String.LocalizationValue(title), url: url)
+    }
+}
+
 public extension ConfigurableObject {
     nonisolated protocol AnnotationProtocol: AnyObject {
         @MainActor

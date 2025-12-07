@@ -16,6 +16,11 @@ open class ShareLinkAnnotation: ConfigurableObject.AnnotationProtocol {
         self.url = url
     }
 
+    @_disfavoredOverload
+    public convenience init(title: String, url: URL) {
+        self.init(title: String.LocalizationValue(title), url: url)
+    }
+
     @MainActor
     public func createView(fromObject _: ConfigurableObject) -> ConfigurableView {
         ConfigurableShareLinkView(buttonTitle: title, url: url)

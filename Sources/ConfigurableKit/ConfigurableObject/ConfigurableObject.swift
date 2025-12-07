@@ -218,6 +218,52 @@ public nonisolated extension ConfigurableObject {
         explain: String = "",
         key: String,
         defaultValue: ConfigurableKitAnyCodable,
+        annotation: AnyAnnotation,
+        availabilityRequirement: AvailabilityRequirement? = nil,
+        storage: KeyValueStorage = ConfigurableKit.storage
+    ) {
+        self.init(
+            icon: icon,
+            title: String.LocalizationValue(title),
+            explain: String.LocalizationValue(explain),
+            key: key,
+            defaultValue: defaultValue,
+            annotation: annotation,
+            availabilityRequirement: availabilityRequirement,
+            storage: storage
+        )
+    }
+
+    @_disfavoredOverload
+    convenience nonisolated init(
+        icon: String,
+        title: String,
+        explain: String = "",
+        key: String,
+        defaultValue: some Codable,
+        annotation: AnyAnnotation,
+        availabilityRequirement: AvailabilityRequirement? = nil,
+        storage: KeyValueStorage = ConfigurableKit.storage
+    ) {
+        self.init(
+            icon: icon,
+            title: String.LocalizationValue(title),
+            explain: String.LocalizationValue(explain),
+            key: key,
+            defaultValue: defaultValue,
+            annotation: annotation,
+            availabilityRequirement: availabilityRequirement,
+            storage: storage
+        )
+    }
+
+    @_disfavoredOverload
+    convenience nonisolated init(
+        icon: String,
+        title: String,
+        explain: String = "",
+        key: String,
+        defaultValue: ConfigurableKitAnyCodable,
         annotation: Annotation,
         availabilityRequirement: AvailabilityRequirement? = nil,
         storage: KeyValueStorage = ConfigurableKit.storage
